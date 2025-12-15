@@ -2,8 +2,8 @@ const db = require('../models/db')
 
 exports.addListe = (req, res)=>{
 
-    const {tache} =req.body
-    db.query('INSERT INTO liste (tache) VALUES(?)', [tache], (error,resultat)=>{
+    const {tache, date_debut, date_fin} =req.body
+    db.query('INSERT INTO liste (tache, date_debut, date_fin) VALUES(?)', [tache, date_debut, date_fin], (error,resultat)=>{
         if(error){
             console.log(error)
             return res.json({message: "Erreur lors de l'ajout de la tâche",})
